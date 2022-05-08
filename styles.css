@@ -2,6 +2,7 @@
 
 body {
     margin: 0;
+    overflow-x: hidden;
 }
 
 #page-grid {
@@ -9,23 +10,110 @@ body {
     grid-template-areas:
         "sidebar header"
         "sidebar main";
-    grid-template-columns: 20vw 80vw;
-    grid-template-rows: 15vh 85vh;
+    grid-template-columns: 20vw auto;
+    grid-template-rows: 20vh auto;
 }
 
 .header {
     grid-area: header;
-    background-color: black;
+    display: grid;
+    grid-template-rows: 20fr 80fr;
+}
+
+.header-top-subgrid {
+    display: grid;
+    grid-template-columns: 70fr 10fr 10fr 10fr;
+    align-items: center;
+    padding-top: 5px;
+}
+
+.search-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+}
+
+.search-form > button {
+    background-color: white;
+    border: none;
+}
+
+.search-form > button:hover {
+    cursor: pointer;
+}
+
+.search-form input {
+    background-color: #cccccc;
+    border: none;
+    width: 80%;
+    padding: 10px;
+    border-radius: 50px;
+    outline: none;
+}
+
+.search-form input:focus {
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+}
+
+.small-profile-icon {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    justify-self: flex-end;
+}
+
+#notification-icon {
+    justify-self: flex-end;
+}
+
+#profile-name {
+    font-size: 1.25rem;
+    justify-self: flex-start;
+    padding-left: 15px;
+}
+
+.header-bot-subgrid {
+    display: grid;
+    grid-template-columns: 10fr 65fr 30fr;
+    align-items: center;
+}
+
+.header-btn-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+.header-btn-group > button {
+    background-color: #0099cc;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 25px;
+    font-weight: bold;
+    width: 100px;
+}
+
+.header-btn-group > button:hover {
+    cursor: pointer;
+    background-color: #0888b3;
+}
+
+.big-profile-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    justify-self: center;
+}
+
+#name {
+    font-weight: bolder;
+    font-size: 1.5rem;
 }
 
 .sidebar {
     grid-area: sidebar;
     background-color: #0099cc;
-}
-
-.main-content {
-    grid-area: main;
-    background-color: green;
 }
 
 .branding-section,
@@ -54,4 +142,90 @@ body {
 .navigation-section > li,
 .settings-section > li {
     margin: 10px;
+}
+
+.main-content {
+    grid-area: main;
+    background-color: #cccccc;
+    display: grid;
+    grid-template-areas:
+        "projects announcement"
+        "projects trending";
+    grid-template-columns: 70fr 30fr;
+    grid-template-rows: 50fr 50fr;
+    padding: 15px;
+    align-items: flex-start;
+}
+
+.projects-container {
+    grid-area: projects;
+}
+
+.announcements-container {
+    grid-area: announcement;
+}
+
+.trending-container {
+    grid-area: trending;
+}
+
+.main-section-container {
+    background-color: white;
+    padding: 5px 15px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.8)
+}
+
+.main-section-container p {
+    font-size: 0.9rem;
+}
+
+.main-section-container h4 {
+    margin: 0;
+}
+
+.trending-container section {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.projects-container {
+    display: grid;
+}
+
+.projects-container > h3 {
+    grid-column: 1 / 3;
+    grid-row: 1 / 2;
+}
+
+.projects-listing {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 60%;
+    grid-auto-columns: 1fr 1fr;
+    list-style: none;
+    margin: 0px;
+    padding: 0;
+    grid-gap: 10px;
+}
+
+.project-listing-img {
+    width: 100%;
+    height: 100%;
+    justify-self: center;
+}
+
+.project-container {
+    display: grid;
+    grid-template-rows: 1fr 4fr 2fr;
+    padding: 5px 10px;
+    background-color: white;
+    border-radius: 10px;
+    border-left: 10px solid orange;
+}
+
+.project-container a {
+    text-decoration: none;
+    color: #0000EE;
 }
