@@ -18,6 +18,8 @@ body {
     grid-area: header;
     display: grid;
     grid-template-rows: 20fr 80fr;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
+    z-index: 100;
 }
 
 .header-top-subgrid {
