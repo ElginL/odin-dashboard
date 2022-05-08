@@ -114,13 +114,15 @@ body {
 .sidebar {
     grid-area: sidebar;
     background-color: #0099cc;
+    position: fixed;
+    height: 100%;
+    width: 20vw;
 }
 
-.branding-section,
-.link-container {
+.branding-section {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 5px;
 }
 
 .branding-section > p {
@@ -132,16 +134,28 @@ body {
     color: white;
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.link-container > a:hover {
+    color: #cccccc;
 }
 
 .navigation-section,
 .settings-section {
     padding: 10px;
+    list-style: none;
 }
 
 .navigation-section > li,
 .settings-section > li {
     margin: 10px;
+}
+
+.navigation-description {
+    font-size: 1.25rem;
 }
 
 .main-content {
@@ -152,9 +166,10 @@ body {
         "projects announcement"
         "projects trending";
     grid-template-columns: 70fr 30fr;
-    grid-template-rows: 50fr 50fr;
+    grid-template-rows: 1fr 3fr;
     padding: 15px;
     align-items: flex-start;
+    grid-gap: 10px;
 }
 
 .projects-container {
@@ -202,17 +217,15 @@ body {
 .projects-listing {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-auto-rows: 60%;
-    grid-auto-columns: 1fr 1fr;
     list-style: none;
     margin: 0px;
-    padding: 0;
-    grid-gap: 10px;
+    padding: 0 10px 0 0;
+    grid-gap: 15px;
 }
 
 .project-listing-img {
     width: 100%;
-    height: 100%;
+    height: 200px;
     justify-self: center;
 }
 
@@ -223,9 +236,94 @@ body {
     background-color: white;
     border-radius: 10px;
     border-left: 10px solid orange;
+    height: 350px;
 }
 
 .project-container a {
     text-decoration: none;
     color: #0000EE;
+}
+
+@media (max-width: 940px) {
+    .projects-listing {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 854px) {
+    #page-grid {
+        grid-template-columns: 15vw auto;
+        grid-template-rows: 30vh auto;
+    }
+
+    .sidebar {
+        width: 15vw;
+    }
+
+    .link-container {
+        display: flex;
+        justify-content: center;
+    }
+
+    .navigation-section,
+    .settings-section {
+        padding: 0;
+    }
+    
+    .branding-section {
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+    }
+
+    .branding-section img {
+        display: flex;
+        width: 8vw;
+    }
+
+    .branding-section > p {
+        display: none;
+    }
+
+    .navigation-description {
+        display: none;
+    }
+
+    .main-content {
+        grid-template-areas:
+            "projects"
+            "announcement"
+            "trending";
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr 1fr;
+    }
+
+    .header-bot-subgrid {
+        grid-template-columns: 40fr 60fr;
+        grid-template-rows: 2fr 1fr;
+        column-gap: 10px;
+    }
+
+    .header-btn-group {
+        grid-row: 2 / 3;
+        grid-column: 1 / 3;
+    }
+
+    .big-profile-icon {
+        justify-self: flex-end;
+    }
+
+    .search-form {
+        width: 90%;
+    }
+
+    .main-section-container {
+        margin-bottom: 15px;
+    }
+}
+
+@media (max-width: 690px) {
+    .header-bot-subgrid {
+        grid-template-columns: 30fr 70fr;
+    }
 }
